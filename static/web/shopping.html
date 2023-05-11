@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="py-5">
+                    <img class="d-block mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
+                        alt="" width="72" height="72">
+                </div>
+            </div>
+            <div class="col-8 py-5"></div>
+            <div class="col">
+                <div class="py-5">
+                    <a href="/checkout_form.html" class="btn btn-info btn-lg cart-button">
+                        <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart <span id="cart-quantity" class="badge badge-light">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="product-list" class="row">
+
+        </div>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2017-2018 Company Name</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+<!-- Cookie Library -->
+<script src="./js/js.cookie.min.js"></script>
+<!-- Product List -->
+<script src="./js/config.js"></script>
+<script>
+var cartQuantity = 0
+for(var i = 0; i < productList.length; i++){
+    var product = productList[i]
+
+    $("#product-list").append('<div class="col-sm">'
+                + '<img class="center-block img-thumbnail" width="300" src=' + product.image + '>'
+                + '<p>' + product.title + '</p>'
+                + '<p>' + product.desc + '</p>'
+                + '<p>$' + product.price + '</p>'
+                + '<form itemid="' + product.id + '" class="add-form">'
+                +    '<button type="submit" type="button" class="btn btn-primary mt-2">Add to Cart</button>'
+                + '</form>'
+                +'</div>')
+
+
+    var itemQuantity = Cookies.get("item" + product.id) || 0;
+    cartQuantity += parseInt(itemQuantity);
+}
+$("#cart-quantity").html(cartQuantity)
+
+$( ".add-form" ).submit(function(event) {
+    var itemid = $(this).attr("itemid")
+    var quantity = Cookies.get("item" + itemid) || 0 
+    Cookies.set("item" + itemid, ++quantity)
+});
+</script>
+</html>

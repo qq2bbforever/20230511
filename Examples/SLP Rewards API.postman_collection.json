@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "a4d6a198-c86c-4a23-913e-3e93bb3d69bd",
+		"name": "SLP Rewards",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hello World",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hello World POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data\": \"Bar!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/postTest",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"postTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Address Balance (BCH)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/address/bitcoincash:qrlsukhggdmm7x78nj6pfgvw2n4zme5dkyr4qptl64/balance",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"address",
+						"bitcoincash:qrlsukhggdmm7x78nj6pfgvw2n4zme5dkyr4qptl64",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Address Balance (SLP)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/address/bitcoincash:qrlsukhggdmm7x78nj6pfgvw2n4zme5dkyr4qptl64/token/balance",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"address",
+						"bitcoincash:qrlsukhggdmm7x78nj6pfgvw2n4zme5dkyr4qptl64",
+						"token",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send SLP Tokens To Address",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"dollarAmount\": 389.98\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/address/simpleledger:qq7uvlu32yx6xdvekl9m3a0v54awptfh9sep49lvtz/token/send",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"address",
+						"simpleledger:qq7uvlu32yx6xdvekl9m3a0v54awptfh9sep49lvtz",
+						"token",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check If Funding Address Received TX",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/funding/tx/check",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"funding",
+						"tx",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dollar to Token Conversion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/dollarAmount/389.98/tokens",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"dollarAmount",
+						"389.98",
+						"tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mint SLP Tokens",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"amount\": 500\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/funding/token/mint",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"funding",
+						"token",
+						"mint"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create SLP Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"decimals\": 2,\n\t\"name\": \"SLP Rewards\",\n\t\"symbol\": \"RWRD\",\n\t\"documentUri\": \"\",\n\t\"documentHash\": \"\",\n\t\"amount\": 10000,\n\t\"tokensPerDollar\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/funding/token/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"funding",
+						"token",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
